@@ -10,6 +10,8 @@
 ![Platform](https://img.shields.io/badge/платформа-Android%20%7C%20Windows-lightgrey)
 ![Protocol](https://img.shields.io/badge/протокол-VLESS%20%2F%20Xray-blueviolet)
 
+[![Google Play](https://img.shields.io/badge/Google_Play-Скачать-green?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=online.narodniyvpn.app)
+
 </div>
 
 ---
