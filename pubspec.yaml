@@ -1,0 +1,49 @@
+name: my_pro_vpn
+description: "Народный VPN — клиент VPN-сервиса с поддержкой VLESS-протокола, шифрованием лицензий и раздельным туннелированием."
+publish_to: 'none'
+
+version: 2.1.2+43
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  cupertino_icons: ^1.0.8
+  
+  # --- ЗАЩИТА И СЕТЬ ---
+  encrypt: ^5.0.3
+  http: ^1.2.0
+  
+  # --- СИСТЕМНЫЕ ИНФО ---
+  # Обновили версии, чтобы убрать конфликт зависимостей (web)
+  device_info_plus: ^10.1.0
+  package_info_plus: ^8.0.0  # <--- ИСПРАВЛЕНО (Было 5.0.1)
+
+  # --- ОСТАЛЬНОЕ ---
+  url_launcher: ^6.2.5       # Добавили ^ для гибкости
+  shared_preferences: ^2.2.2 # Добавили ^ для гибкости
+
+  # --- ПРИНУДИТЕЛЬНОЕ ОБНОВЛЕНИЕ (Google Play In-App Updates, IMMEDIATE) ---
+  in_app_update: ^4.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+# --- НАСТРОЙКИ ГЕНЕРАТОРА ИКОНОК ---
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "android/assets/icon.jpg"
+  min_sdk_android: 24
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "android/assets/icon.jpg"
