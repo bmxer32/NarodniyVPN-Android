@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:device_info_plus/device_info_plus.dart';
 
+import 'app_config.dart';
+
 /// Ошибка триала с HTTP-кодом (400/404/503 и т.п.), чтобы UI мог показать
 /// корректное сообщение по ТЗ (п.7).
 class TrialException implements Exception {
@@ -113,7 +115,7 @@ class TrialServerInfo {
 }
 
 class TrialService {
-  static const String _baseUrl = "https://narodniyvpn.online";
+  static const String _baseUrl = AppConfig.baseUrl;
   static const MethodChannel _channel = MethodChannel('online.narodniyvpn.app/vpn');
 
   /// Стабильный идентификатор устройства — Settings.Secure.ANDROID_ID (нативно).

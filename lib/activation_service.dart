@@ -4,9 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 
+import 'app_config.dart';
+
 class ActivationService {
-  // ✅ ИСПРАВЛЕНО: Новый адрес API без порта и поддомена
-  static const String _activateUrl = "https://narodniyvpn.online/api/key/activate";
+  static const String _activateUrl = AppConfig.activateUrl;
 
   /// Получает уникальный ID устройства (Hardware ID)
   static Future<String> getHardwareId() async {

@@ -1,29 +1,19 @@
 import 'package:encrypt/encrypt.dart' as encrypt;
 
+import 'app_config.dart';
+
 class SecurityService {
-  // === МИНИМАЛЬНАЯ ЗАЩИТА (ОБФУСКАЦИЯ) ===
-  // Мы храним ключи не как текст, а как набор кодов символов.
-  // Это защищает от простого поиска текста в скомпилированном приложении.
+  // Ключ и IV лежат в lib/app_config.dart, который не коммитится.
+  // Шаблон со значениями-заглушками — lib/app_config.example.dart.
   //
-  // ЗНАЧЕНИЯ УДАЛЕНЫ ИЗ ИСТОРИИ РЕПОЗИТОРИЯ.
-  // Подставьте свои: ключ — ровно 32 байта, IV — ровно 16 байт.
+  // Важно: это клиентское приложение, поэтому ключ всё равно попадает в APK и
+  // извлекаем из него. Шифрование ссылок здесь — обфускация, а не защита;
+  // проверять права доступа обязан сервер.
 
-  static final List<int> _keyBytes = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0
-  ];
+  static String get _secretKey => String.fromCharCodes(AppConfig.aesKeyBytes);
+  static String get _initVector => String.fromCharCodes(AppConfig.aesIvBytes);
 
-  static final List<int> _ivBytes = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0
-  ];
-
-  static const String _prefix = "narodniy://";
-
-  /// Собираем строку ключа из байтов "на лету"
-  static String get _secretKey => String.fromCharCodes(_keyBytes);
-  static String get _initVector => String.fromCharCodes(_ivBytes);
+  static String get _prefix => AppConfig.linkPrefix;
 
   /// Проверяет, является ли ссылка нашей фирменной
   static bool isNarodniyLink(String text) {

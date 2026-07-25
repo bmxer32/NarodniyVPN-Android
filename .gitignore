@@ -69,3 +69,7 @@ ios/.symlinks/
 
 # --- Claude Code ---
 .claude/
+
+# --- Локальная конфигурация (ключи, эндпоинты) ---
+# Шаблон: lib/app_config.example.dart
+lib/app_config.dart
